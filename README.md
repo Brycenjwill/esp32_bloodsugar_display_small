@@ -3,14 +3,15 @@
 - Pulls live SGV (blood glucose) values from Nightscout.
 - Shows trend arrows (↗︎ ↑ → ↓ ↘︎ ⇈ ⇊).
 - Updates automatically every minute and a half.
-- Supports 3-digit numbers + arrow.
+- Supports a current bg range indicator + an arrow.
 - Works anywhere with Wi-Fi access.
 
 
 ## Requires
 - A Nightscout server. Nightscout Pro was used for testing.
+  - Target high and target low values should be set on your profile for the curreng bg range indicators to work.
 - An ESP32. An ESP Devkit V4 was used for testing.
-- Four chained MAX7219 8×8 LED matrices (often sold pre-soldered as a 4-module unit).
+- 1 MAX7219 8×8 LED matrix.
 - Either the ESP-IDF VSCode extension or the ESP-IDF Eclipse plugin for flashing
 
 ## Setup
@@ -28,6 +29,7 @@
 | --------------- | -------------------------------------------------------------- | ----------------------------------------- |
 | `API_HOST`      | Base URL of your Nightscout server (no trailing slash)         | `"https://your-nightscout.herokuapp.com"` |
 | `API_ENDPOINT`  | Nightscout REST endpoint for SGV data (example is what I used) | `"/api/v1/entries.json?count=1"`          |
+| `API_ENDPOINT`  | Nightscout REST endpoint for Profile data (example is what I used) | `"/api/v1/profile.json?count=1"`          |
 | `API_SECRET`    | Nightscout API secret                                          | `"yourapikeyhash"`                        |
 | `WIFI_SSID`     | Wi-Fi network name                                             | `"HomeNetwork"`                           |
 | `WIFI_PASSWORD` | Wi-Fi network password                                         | `"SuperSecret123"`                        |
